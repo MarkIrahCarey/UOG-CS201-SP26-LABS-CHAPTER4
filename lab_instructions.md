@@ -12,7 +12,7 @@ Purpose: What the program is about
 
 For your file names, please name each lab by the following `{specificlabname}_yourlastnamethenfirstnameinitials`
 
-So for example, If I am turning in Lab 4c, the file name is `clean_lyrics_galangmi.py`
+So for example, If I am turning in Lab 4e, the file name is `clean_lyrics_galangmi.py`
 
 ## Lab 4a: Palindromes
 A palindrome is a word, phrase, or sequence that reads the same forwards and backwards (ignoring spaces, punctuation, and capitalization). Examples: "racecar", "madam", "taco cat", "A man, a plan, a canal: Panama!"
@@ -33,8 +33,101 @@ Here are some test cases for you to work with:
 
 There a many ways to do this, so the following recommended functions: `lower()`, `replace()`, `strip()`, `reversed()`, `for` or `while`
 
+---
 
-## Lab 4b: The grade reporter
+## Lab 4b and 4c: Decimal to Hexademical and Hexadecimal to Decimal
+
+Lets understand how hex works:
+
+**The Digits**: Hexadecimal uses 16 digits:
+
+- 0 - 9 represents values 0 to 9
+- A - F represents values 10 - 15
+
+For example, lets take the 3410. Like in binary and octal, to convert this to hexadecimal, we divide by 16. Keep track of the remainder as this is our hexadecimal bit, then use the quotient to continue dividing. Keep repeating this until our quotient is zero:
+
+| Step | Division | Quotient | Remainder | Remainder in Hex |
+|:----:|:--------:|:--------:|:---------:|:----------------:|
+| 1 | 3410 ÷ 16 | 213 | 2 | 2 |
+| 2 | 213 ÷ 16 | 13 | 5 | 5 |
+| 3 | 13 ÷ 16 | 0 | 13 | D |
+
+**Note:** Read the remainders from **bottom to top**: D 5 2
+
+To convert back, just like decimal has ones place ($10^0$), tens place ($10^1$), hundreds place ($10^2$), hex has places that are powers of 16. each bit is multiplied by a power of 16, and added together.
+
+So for example: `D52`
+
+$$ 2 \times 16^0 = 2 \\ 5 \times 16^1 = 80 \\ D \times 16^2 = 13 * 256 = 3328 $$
+
+Thus `D52 = 2 + 80 + 3328 = 3410`
+
+Create two programs `decimal_to_hexadecimal.py` and `hexaedcimal_to_decimal.py` that converts decimal to hexadecimal and converts it back from hexadecimal to decimal.
+
+Just note that it is much easier to have the output (hexadecimal) be in a string since we have to convert values remainders 10-15 to A-F. 
+
+***Recommended Functions and Operations***
+
+**For lab4b:**
+| Category | Functions/Operations | Purpose |
+|:---------|:---------------------|:--------|
+| **Math Operations** | `//` (integer division) | Get quotient |
+| | `%` (modulo) | Get remainder |
+| | `while` loop | Repeat division until quotient is 0 |
+| **String Building** | String concatenation (`+`) | Build hex string from remainders |
+| | `str()` | Convert numbers to strings |
+| | `""` (empty string) | Start with empty string |
+| **Digit Conversion** | `if/elif/else` | Convert 10-15 to A-F |
+| | `0-9` digits | Keep as-is |
+| | `10-15` | Map to 'A' through 'F' |
+
+---
+
+**For lab4e:**
+| Category | Functions/Operations | Purpose |
+|:---------|:---------------------|:--------|
+| **String Processing** | `len()` | Get length of hex string |
+| | String indexing `[i]` | Access each digit |
+| | `.upper()` | Convert to uppercase for consistent processing |
+| | `for` loop | Iterate through each digit |
+| **Digit Conversion** | `if/elif/else` | Convert A-F to 10-15 |
+| | `int()` | Convert '0'-'9' to integers |
+| **Math Operations** | `**` (exponentiation) | Calculate powers of 16 |
+| | `*` (multiplication) | Multiply digit by place value |
+| | `+` (addition) | Accumulate total |
+
+---
+
+## Lab 4d: Clean lyrics!
+Radio stations that play music really hates curse words, profanity, and very explicit lyrics. So they would usually blur curse words like sh\*t, b\*tch, and many more! 
+
+**The rules for cleaning:**
+- Replace each character in the curse word with * (e.g., "shit" becomes "****")
+- Keep the first letter visible (e.g., "shit" becomes "s***")
+- Or use a standard bleep sound: "[BLEEP]". You decide which rule to implement!
+
+List of curse words (considered for this lab): "sh\*t", "b\*tch", "f\*ck". You may expand the list if you wish, just note that in your docstring. 
+
+Create a program called `clean_lyrics.py` that reads any song lyrics from a text file and creates a "clean" version suitable for radio broadcast. 
+The program should do the following:
+- Output the clean version into a textfile called `songname_clean.txt`.
+- Check for sensitive cases, "Shit", "SHIT", "shit", etc. should be treated the same. 
+- Also, please note that some music artists may express profanity differently, so things like "b\*tchin", "b\*tchy", "f\*cker", "f\*cked", etc. I don't expect you to get through all cases, but try your best to account for cases like these.
+
+You have some textfiles of song lyrics that you can test on: `rap_god.txt`, `snooze.txt`
+
+Some general tips:
+- You can create your list of curse words and check if a word is in that list.
+- Remember, you can iterate through a line by converting a line into a list 
+- Alternatevely, you can use the `replace()` function for strings (however, this is much trickier)
+- You can nest a read and write function
+- You can account for different 
+
+Recommended functions/operations: `open()`, `readlines()`, `split()`, `lower()`, `replace()`
+
+---
+
+## Lab 4e: The grade reporter
 
 Lets modify Lab 3b and turn it to an auto grader! You are given a `grades.txt` (that was generated randomly). The structure is the following format:
 ```
@@ -62,97 +155,123 @@ Recommended Functions/Operations: `open(filename, 'r')`, `open(filename, 'w')`, 
 
 You also need understanding of indexing.
 
+---
 
+## L̴̦̐̅a̵̢͘b̵̯̎̐ ̸͇͌4̵̙̓ḟ̵̳̩̃:̶̅͘ͅ ̷̨̜̈́̚D̵̖͂E̶̯͂̈́Ć̶̼͔̎Ò̵͉͆D̶͒̅͜͜Ë̷͈̟́ ̵̯̙̆͒T̶̛͈̉H̴̭̎E̵̥̞̍̕ ̴̢̈͜V̶̫͈̈O̶͕͋̔I̵̪͝͝ͅD̵̖͑ ̴̣̤̅—̴̥̮̆͆ ̵̬͑̔O̷̦͓̿P̵̧̙̑Ę̷͗͜R̵̨͓͝A̷̠͝͝Ṫ̶̳̦Î̵̠͔Ò̷̩̤͑N̶͚̝̽̕:̴͍̱̓̅ ̸̹̔M̸͚͒A̷̦͛Ṋ̷̾̄ ̶͚̳͌͋Ȉ̴̫̭N̵̮̥̋̒ ̴͍͚͒Ť̴̡̯̎Ḥ̴̛͛Ę̸̖̽ ̷̟̽M̷̧͌̅Í̸̡̬̊D̷̘̩̈̉D̸͉̍L̷̻̒̏Ȩ̴̗́
 
-## Lab 4c: Clean lyrics!
-Radio stations that play music really hates curse words, profanity, and very explicit lyrics. So they would usually blur curse words like sh\*t, b\*tch, and many more! 
-
-**The rules for cleaning:**
-- Replace each character in the curse word with * (e.g., "shit" becomes "****")
-- Keep the first letter visible (e.g., "shit" becomes "s***")
-- Or use a standard bleep sound: "[BLEEP]". You decide which rule to implement!
-
-List of curse words (considered for this lab): "sh\*t", "b\*tch", "f\*ck". You may expand the list if you wish, just note that in your docstring. 
-
-Create a program called `clean_lyrics.py` that reads any song lyrics from a text file and creates a "clean" version suitable for radio broadcast. 
-The program should do the following:
-- Output the clean version into a textfile called `songname_clean.txt`.
-- Check for sensitive cases, "Shit", "SHIT", "shit", etc. should be treated the same. 
-- Also, please note that some music artists may express profanity differently, so things like "b\*tchin", "b\*tchy", "f\*cker", "f\*cked", etc. I don't expect you to get through all cases, but try your best to account for cases like these.
-
-You have some textfiles of song lyrics that you can test on: `rap_god.txt`, `snooze.txt`
-
-Some general tips:
-- You can create your list of curse words and check if a word is in that list.
-- Remember, you can iterate through a line by converting a line into a list 
-- Alternatevely, you can use the `replace()` function for strings (however, this is much trickier)
-- You can nest a read and write function
-- You can account for different 
-
-Recommended functions/operations: `open()`, `readlines()`, `split()`, `lower()`, `replace()`
-
-## Lab 4d:
-
-## Lab 4e and 4f: Decimal to Hexademical and Hexadecimal to Decimal
-
-Lets understand how hex works:
-
-**The Digits**: Hexadecimal uses 16 digits:
-
-- 0 - 9 represents values 0 to 9
-- A - F represents values 10 - 15
-
-For example, lets take the 3410. Like in binary and octal, to convert this to hexadecimal, we divide by 16. Keep track of the remainder as this is our hexadecimal bit, then use the quotient to continue dividing. Keep repeating this until our quotient is zero:
-
-| Step | Division | Quotient | Remainder | Remainder in Hex |
-|:----:|:--------:|:--------:|:---------:|:----------------:|
-| 1 | 3410 ÷ 16 | 213 | 2 | 2 |
-| 2 | 213 ÷ 16 | 13 | 5 | 5 |
-| 3 | 13 ÷ 16 | 0 | 13 | D |
-
-**Note:** Read the remainders from **bottom to top**: D 5 2
-
-To convert back, just like decimal has ones place ($10^0$), tens place ($10^1$), hundreds place ($10^2$), hex has places that are powers of 16. each bit is multiplied by a power of 16, and added together.
-
-So for example: `D52`
-
-\[ 2 \times 16^0 = 2 \\ 5 \times 16^1 = 80 \\ D \times 16^2 = 13 * 256 = 3328 \]
-
-Thus `D52 = 2 + 80 + 3328 = 3410`
-
-Create two programs `decimal_to_hexadecimal.py` and `hexaedcimal_to_decimal.py` that converts decimal to hexadecimal and converts it back from hexadecimal to decimal.
-
-Just note that it is much easier to have the output (hexadecimal) be in a string since we have to convert values remainders 10-15 to A-F. 
-
-***Recommended Functions and Operations***
-
-**For lab4e:**
-| Category | Functions/Operations | Purpose |
-|:---------|:---------------------|:--------|
-| **Math Operations** | `//` (integer division) | Get quotient |
-| | `%` (modulo) | Get remainder |
-| | `while` loop | Repeat division until quotient is 0 |
-| **String Building** | String concatenation (`+`) | Build hex string from remainders |
-| | `str()` | Convert numbers to strings |
-| | `""` (empty string) | Start with empty string |
-| **Digit Conversion** | `if/elif/else` | Convert 10-15 to A-F |
-| | `0-9` digits | Keep as-is |
-| | `10-15` | Map to 'A' through 'F' |
+***TOP SECRET // CLASSIFIED // EYES ONLY***
 
 ---
 
-**For lab4f:**
-| Category | Functions/Operations | Purpose |
-|:---------|:---------------------|:--------|
-| **String Processing** | `len()` | Get length of hex string |
-| | String indexing `[i]` | Access each digit |
-| | `.upper()` | Convert to uppercase for consistent processing |
-| | `for` loop | Iterate through each digit |
-| **Digit Conversion** | `if/elif/else` | Convert A-F to 10-15 |
-| | `int()` | Convert '0'-'9' to integers |
-| **Math Operations** | `**` (exponentiation) | Calculate powers of 16 |
-| | `*` (multiplication) | Multiply digit by place value |
-| | `+` (addition) | Accumulate total |
+### D̴O̷S̸S̶I̴E̷R̷:̸ ̸O̵P̷E̵R̷A̶T̵I̷O̴N̴ ̷V̵O̸I̷D̷
+
+To: Special Agent [YOUR NAME], FBI Cyber Crimes Task Force
+From: Assistand Director, MarkIrahCarey
+Subject: URGENT - Immediate Action Required
+
+Special Agent [YOUR NAME],
+
+For the past six months, you've been tracking a cybercriminal organization known as "The Void". They are a known group responsible for stealing over $1.76 billion from banks across the country. They've hit institutions in New York, Chicago, and Los Angeles.
+
+They are ghosts. Until now.
+
+#### THE INTEL (Let's just say... acquired through "̷̱̣̖̦͋̚a̶͈͗l̸͉͆̿͂̂t̵̛͓̪̣͚̾̚e̸̖̬͚͉̾̀̾̚r̶͙̀̓n̵͈͎̆͆̄̋ã̵̮̼̏̋ͅt̴̃ͅí̷̪̠͋̉̇v̶̟̦̾̎̚͜ȇ̵̘̤̞͛ ̷͉̠̫́̓̓m̸̰̀̓e̵̗̣̎̽͒̀ͅą̶͎̠͌̈́n̶̯̝͘s̴͖͇̲̈̈"̸̙̱̱͂̀)
+
+Three days ago, a very good friend of mine, lets say... a *confidential informant*, had ties to the underground scene passed us a encrypted drive. They told me it contained some information that *could* be useful. 
+
+The drive had **47 locked files**. Each one protected with its own password. Took my team six days to crack through all the files, but we finally got in. Nothing earth-shattering at first glance. Just small talk. Gah! Felt like we wasted a week on nothing.
+
+But we decided to go through the files one more time. Then it hit us. One detail stood out, **LOG #VOID-035**:
+
+> ...the big meeting between Ghost and Wraith happens soon. they only communicate directly when something massive is planned. last time they talked, three banks fell. It is rumored that **Guam is next...**"
+
+Guam.
+
+That changes everything.
+
+My team worked double time. Our goal was to incercept this conversation! We tapped on a compromised router believed to be used by Void operatives thanks to our *confidential informant*. If they were planning something in our backyard, we needed to know exactly when and where.
+
+Then, last night at 02:10 AM, we got lucky.
+
+We had monitored for a couple days and had thought it was a dud, a fake to throw us off. But, at 02:13 AM, traffic appeared. Two IP addresses we've been watching for months suddenly lit up.
+
+**Ghost and Wraith were talking.**
+
+The tap was running for a bit, long enough to capture their conversation. But then they noticed something. The connection cut out. Our attack was compromised!
+
+It's fine though. We managed to record everything before they kicked us out.
+
+But here's the problem: it's encrypted with their **custom cipher**. Our cryptographers say it could take weeks to crack.
+
+We don't have weeks.
+
+Guam doesn't have weeks.
+
+That's where you come in, Agent [YOUR NAME].
+
+**Your job:** Decode their conversation and figure out what they're planning.
+
+A colleague of yours has the decrptyed log files. 
+
+Please... save Guam.
+
+---
+
+### THE CASE FILES
+
+Thanks to Assistant Director MarkIrahCarey and your months of investigation, you flip notes and find scattered pieces of intellegence. Most of the log files are just duds, but you found some very useful information:
+
+#### EVIDENCE LOG #VOID-25
+Source: Decrypted Drive
+
+>...can't use standard Caesar, too obvious...
+...we need something they won't expect...
+...if A becomes B, too simple...
+...what if we reverse the alphabet? A=Z, B=Y, C=X...
+...call it the "mirror cipher"...
+...test: "hello" becomes "svool"...
+...Ghost likes it. Wraith says too confusing but Ghost insists...
+...fine, we use it for all sensitive comms...
+
+#### EVIDENCE LOG #VOID-47
+Source: Decrypted Drive
+>...did you see Ghost's message yesterday? He used the mirror again...
+...Wraith still hates it but it works...
+...remember: the mirror doesn't change spaces or punctuation...
+...only letters A-Z...
+...but its case sensitive! how the hell do we read this anyway...
+
+#### EVIDENCE WRITTEN NOTE
+
+>Mirror key:
+A B C D E F G H I J K L M
+| | | | | | | | | | | | |
+Z Y X W V U T S R Q P O N
+So:
+HelLO → SvoOL
+GHOST → ????
+
+#### EVIDENCE PHONE CALL 
+Source: Month 3, a deciphered phone call between two of void and wraths lackies (transcript)
+
+**Unknown Voice 1: "So remind me how the mirror works again?"
+Unknown Voice 2: "Dude, it's simple. A becomes Z, B becomes Y. First becomes last."
+Unknown Voice 1: "So 'attack at dawn' becomes..."
+Unknown Voice 2: "zggzxp zg wzdm. See? Easy."
+Unknown Voice 1: "That's actually kind of cool."
+Unknown Voice 2: "Yeah, Ghost came up with it. Thinks he's a genius."
+Unknown Voice 1: "Wraith still hate it?"
+Unknown Voice 2: "Wraith hates everything."**
+
+#### YOUR TASK
+
+Create a program called `void_decipher.py` that:
+
+- Reads the intercepted file `thevoid_conversation.txt`
+- Decodes each message based on our evidence
+- Prints the conversation in real-time as it unfolds, with timestamps
+- Saves the full decoded conversation to `void_decoded.txt`
+- Key intelligence extracted (what are they planning? when? where? what equipment?)
 
 
 
