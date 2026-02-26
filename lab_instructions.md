@@ -225,50 +225,57 @@ Thanks to Assistant Director MarkIrahCarey and your months of investigation, you
 #### EVIDENCE LOG #VOID-25
 Source: Decrypted Drive
 
->...can't use standard Caesar, too obvious...
->...we need something they won't expect...
->...if A becomes B, too simple...
->...what if we reverse the alphabet? A=Z, B=Y, C=X...
->...call it the "mirror cipher"...
->...test: "hello" becomes "svool"...
->...Ghost likes it. Wraith says too confusing but Ghost insists...
->...fine, we use it for all sensitive comms...
+```
+...can't use standard Caesar, too obvious...
+...we need something they won't expect...
+...if A becomes B, too simple...
+...what if we reverse the alphabet? A=Z, B=Y, C=X...
+...call it the "mirror cipher"...
+...test: "hello" becomes "svool"...
+...Ghost likes it. Wraith says too confusing but Ghost insists...
+...fine, we use it for all sensitive comms...
+```
 
 #### EVIDENCE LOG #VOID-47
 Source: Decrypted Drive
 
->...did you see Ghost's message yesterday? He used the mirror again...
->...Wraith still hates it but it works...
->...remember: the mirror doesn't change spaces or punctuation...
->...only letters A-Z...
->...but its case sensitive! how the hell do we read this anyway...
+```
+...did you see Ghost's message yesterday? He used the mirror again...
+...Wraith still hates it but it works...
+...remember: the mirror doesn't change spaces or punctuation...
+...only letters A-Z...
+...but its case sensitive! how the hell do we read this anyway...
+```
 
 #### EVIDENCE WRITTEN NOTE
 
->Mirror key:
->
->A B C D E F G H I J K L M
->| | | | | | | | | | | | |
->Z Y X W V U T S R Q P O N
->
->So:
->
->HelLO → SvoOL
->
->GHOST → ????
+```
+Mirror key:
+
+A B C D E F G H I J K L M
+| | | | | | | | | | | | |
+Z Y X W V U T S R Q P O N
+
+So:
+
+HelLO → SvoOL
+
+GHOST → ????
+```
 
 #### EVIDENCE PHONE CALL
 Source: Month 3, a deciphered phone call between two of Void and Wraith's lackeys (transcript)
 
-**Unknown Voice 1:** "So remind me how the mirror works again?"
-**Unknown Voice 2:** "Dude, it's simple. A becomes Z, B becomes Y. First becomes last."
-**Unknown Voice 1:** "So 'attack at dawn' becomes..."
-**Unknown Voice 2:** "zggzxp zg wzdm. See? Easy."
-**Unknown Voice 1:** "That's actually kind of cool."
-**Unknown Voice 2:** "Yeah, Ghost came up with it. Thinks he's a genius."
-**Unknown Voice 1:** "Wraith still hate it?"
-**Unknown Voice 2:** "Wraith hates everything."
-
+```
+Unknown Voice 1: "So remind me how the mirror works again?"
+Unknown Voice 2: "Dude, it's simple. A becomes Z, B becomes Y. First becomes last."
+Unknown Voice 1: "So 'attack at dawn' becomes..."
+Unknown Voice 2: "zggzxp zg wzdm. See? Easy."
+Unknown Voice 1: "That's actually kind of cool."
+Unknown Voice 2: "Yeah, Ghost came up with it. Thinks he's a genius."
+Unknown Voice 1: "Wraith still hate it?"
+Unknown Voice 2: "Wraith hates everything."
+```
 #### YOUR TASK
 
 Create a program called `void_decipher.py` that:
