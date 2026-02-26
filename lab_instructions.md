@@ -1,0 +1,159 @@
+# General Instructions
+
+Like always, each Lab should have the following header:
+```
+"""
+Author: Your Name
+Date: Today's Date/Due Date
+FileName: The File's Name
+Purpose: What the program is about
+"""
+```
+
+For your file names, please name each lab by the following `{specificlabname}_yourlastnamethenfirstnameinitials`
+
+So for example, If I am turning in Lab 4c, the file name is `clean_lyrics_galangmi.py`
+
+## Lab 4a: Palindromes
+A palindrome is a word, phrase, or sequence that reads the same forwards and backwards (ignoring spaces, punctuation, and capitalization). Examples: "racecar", "madam", "taco cat", "A man, a plan, a canal: Panama!"
+
+Create a program called `palindrome_checker.py` that asks the user for a word or phrase and determines if it's a palindrome.
+
+The program should work with:
+- Simple words
+- Phrases (so it ignores punctuations like .,?,!,;,etc.)
+- Case-sensitive words ("racecar", "RACECAR", "RaCECar" should be treated the same)
+
+Here are some test cases for you to work with:
+- racecar
+- madam
+- kayak
+- Taco Cat
+- A man, a plan, a canal: Panama!
+
+There a many ways to do this, so the following recommended functions: `lower()`, `replace()`, `strip()`, `reversed()`, `for` or `while`
+
+
+## Lab 4b: The grade reporter
+
+Lets modify Lab 3b and turn it to an auto grader! You are given a `grades.txt` (that was generated randomly). The structure is the following format:
+```
+StudentName,TestAverage,QuizAverage,AssignmentAverage,ProjectAverage,FinalExamScore
+```
+
+For example:
+```
+Maria Santos,94.3,100,103.2,97.7,89.3
+Jose Cruz,82.3,100,91.4,87.0,75.5
+Ana Leon-Guerrero,78.5,92.5,88.0,91.2,82.8
+```
+
+Your job is to read the textfile, calculate each students final grade and letter grade (using the same grade scale from lab3b) and save the results into a new text file called `graded.txt`.
+
+Some pointers: 
+
+- Please view the text file and understand how you can grab the contents and plug those numbers into your lab 3b to get a letter grade. Maybe you can split them into a list and read the numbers?
+
+- You also need to think on how you can write these as well
+
+Please create a program called `grade_reporter.py` that does the following above.
+
+Recommended Functions/Operations: `open(filename, 'r')`, `open(filename, 'w')`, `readlines()` or `for line in file`, `strip()` to remove the newline (`\n`), `float()`, `split(',')`. 
+
+You also need understanding of indexing.
+
+
+
+## Lab 4c: Clean lyrics!
+Radio stations that play music really hates curse words, profanity, and very explicit lyrics. So they would usually blur curse words like sh\*t, b\*tch, and many more! 
+
+**The rules for cleaning:**
+- Replace each character in the curse word with * (e.g., "shit" becomes "****")
+- Keep the first letter visible (e.g., "shit" becomes "s***")
+- Or use a standard bleep sound: "[BLEEP]". You decide which rule to implement!
+
+List of curse words (considered for this lab): "sh\*t", "b\*tch", "f\*ck". You may expand the list if you wish, just note that in your docstring. 
+
+Create a program called `clean_lyrics.py` that reads any song lyrics from a text file and creates a "clean" version suitable for radio broadcast. 
+The program should do the following:
+- Output the clean version into a textfile called `songname_clean.txt`.
+- Check for sensitive cases, "Shit", "SHIT", "shit", etc. should be treated the same. 
+- Also, please note that some music artists may express profanity differently, so things like "b\*tchin", "b\*tchy", "f\*cker", "f\*cked", etc. I don't expect you to get through all cases, but try your best to account for cases like these.
+
+You have some textfiles of song lyrics that you can test on: `rap_god.txt`, `snooze.txt`
+
+Some general tips:
+- You can create your list of curse words and check if a word is in that list.
+- Remember, you can iterate through a line by converting a line into a list 
+- Alternatevely, you can use the `replace()` function for strings (however, this is much trickier)
+- You can nest a read and write function
+- You can account for different 
+
+Recommended functions/operations: `open()`, `readlines()`, `split()`, `lower()`, `replace()`
+
+## Lab 4d:
+
+## Lab 4e and 4f: Decimal to Hexademical and Hexadecimal to Decimal
+
+Lets understand how hex works:
+
+**The Digits**: Hexadecimal uses 16 digits:
+
+- 0 - 9 represents values 0 to 9
+- A - F represents values 10 - 15
+
+For example, lets take the 3410. Like in binary and octal, to convert this to hexadecimal, we divide by 16. Keep track of the remainder as this is our hexadecimal bit, then use the quotient to continue dividing. Keep repeating this until our quotient is zero:
+
+| Step | Division | Quotient | Remainder | Remainder in Hex |
+|:----:|:--------:|:--------:|:---------:|:----------------:|
+| 1 | 3410 ÷ 16 | 213 | 2 | 2 |
+| 2 | 213 ÷ 16 | 13 | 5 | 5 |
+| 3 | 13 ÷ 16 | 0 | 13 | D |
+
+**Note:** Read the remainders from **bottom to top**: D 5 2
+
+To convert back, just like decimal has ones place ($10^0$), tens place ($10^1$), hundreds place ($10^2$), hex has places that are powers of 16. each bit is multiplied by a power of 16, and added together.
+
+So for example: `D52`
+
+\[ 2 \times 16^0 = 2 \\ 5 \times 16^1 = 80 \\ D \times 16^2 = 13 * 256 = 3328 \]
+
+Thus `D52 = 2 + 80 + 3328 = 3410`
+
+Create two programs `decimal_to_hexadecimal.py` and `hexaedcimal_to_decimal.py` that converts decimal to hexadecimal and converts it back from hexadecimal to decimal.
+
+Just note that it is much easier to have the output (hexadecimal) be in a string since we have to convert values remainders 10-15 to A-F. 
+
+***Recommended Functions and Operations***
+
+**For lab4e:**
+| Category | Functions/Operations | Purpose |
+|:---------|:---------------------|:--------|
+| **Math Operations** | `//` (integer division) | Get quotient |
+| | `%` (modulo) | Get remainder |
+| | `while` loop | Repeat division until quotient is 0 |
+| **String Building** | String concatenation (`+`) | Build hex string from remainders |
+| | `str()` | Convert numbers to strings |
+| | `""` (empty string) | Start with empty string |
+| **Digit Conversion** | `if/elif/else` | Convert 10-15 to A-F |
+| | `0-9` digits | Keep as-is |
+| | `10-15` | Map to 'A' through 'F' |
+
+---
+
+**For lab4f:**
+| Category | Functions/Operations | Purpose |
+|:---------|:---------------------|:--------|
+| **String Processing** | `len()` | Get length of hex string |
+| | String indexing `[i]` | Access each digit |
+| | `.upper()` | Convert to uppercase for consistent processing |
+| | `for` loop | Iterate through each digit |
+| **Digit Conversion** | `if/elif/else` | Convert A-F to 10-15 |
+| | `int()` | Convert '0'-'9' to integers |
+| **Math Operations** | `**` (exponentiation) | Calculate powers of 16 |
+| | `*` (multiplication) | Multiply digit by place value |
+| | `+` (addition) | Accumulate total |
+
+
+
+
