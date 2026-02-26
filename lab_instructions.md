@@ -244,7 +244,7 @@ Source: Decrypted Drive
 ...Wraith still hates it but it works...
 ...remember: the mirror doesn't change spaces or punctuation...
 ...only letters A-Z...
-...but its case sensitive! how the hell do we read this anyway...
+...but agh! its also case-insensitive! maybe I am too dumb. How the hell do we read this anyway...
 ```
 
 #### EVIDENCE WRITTEN NOTE
@@ -258,7 +258,7 @@ Z Y X W V U T S R Q P O N
 
 So:
 
-HelLO → SvoOL
+HELLO → SVOOL
 
 GHOST → ????
 ```
