@@ -1,0 +1,4 @@
+Vowel Percentage: 30.585683297180044
+Consonant Percentage: 45.119305856832966
+Space Percentage: 19.739696312364423
+Other Percentage: 4.55531453362256
