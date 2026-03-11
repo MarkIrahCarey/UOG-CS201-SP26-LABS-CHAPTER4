@@ -21,13 +21,15 @@ Create a program called `palindrome_checker.py` that asks the user for a word or
 
 The program should work with:
 - Simple words
-- Phrases (so it ignores punctuations like .,?,!,;,etc.)
 - Case-sensitive words ("racecar", "RACECAR", "RaCECar" should be treated the same)
+- (Extra credit) Phrases (so it ignores punctuations like .,?,!,;,etc.)
 
 Here are some test cases for you to work with:
 - racecar
 - madam
 - kayak
+
+Extra credit (5pts): Have the program also work for punctuations.
 - Taco Cat
 - A man, a plan, a canal: Panama!
 
